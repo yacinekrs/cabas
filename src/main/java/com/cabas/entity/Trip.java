@@ -43,11 +43,14 @@ public class Trip {
     @Column(nullable = false)
     private TripStatus status;
 
+    @Column(nullable = false)
+    private Double basePricePerKg;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "carrier_id", nullable = false)
     private User carrier;
 
-    @Column(nullable = true, length = 500)
+    @Column(length = 500)
     private String description;
 
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL)

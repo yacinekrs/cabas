@@ -13,6 +13,8 @@ public class TripSearchCriteria {
     @NotBlank
     private String arrivalCity;
 
+    private Double basePricePerKg;
+
     private Double maxWeight;
 
     private LocalDate desiredDepartureDate;

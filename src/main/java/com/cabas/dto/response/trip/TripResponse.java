@@ -23,4 +23,6 @@ public class TripResponse {
     private String carrierName;
 
     private String description;
+
+    private Double basePricePerKg;
 }

@@ -85,12 +85,15 @@ public class TripServiceImpl implements TripService {
             searchDate = LocalDate.now();
         }
 
+        double maxPrice = criteria.getBasePricePerKg() != null ? criteria.getBasePricePerKg() : Double.MAX_VALUE;
+
         List<Trip> availableTrips = tripRepository.findAvailableTrips(
                 criteria.getDepartureCity(),
                 criteria.getArrivalCity(),
                 searchDate,
                 minWeightRequired,
-                TripStatus.OPEN
+                TripStatus.OPEN,
+                maxPrice
                 );
 
       return tripMapper.toResponseList(availableTrips);

@@ -17,9 +17,11 @@ public class TripUpdateRequest {
     @NotNull
     private LocalTime departureTime;
 
-    @Positive
-    @NotNull
+    @Positive @NotNull
     private Double totalWeightCapacity;
+
+    @Positive @NotNull
+    private Double basePricePerKg;
 
     private String description;
 

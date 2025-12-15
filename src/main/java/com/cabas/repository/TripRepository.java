@@ -13,11 +13,12 @@ public interface TripRepository extends JpaRepository<Trip, Long> {
 
     @Query("""
         SELECT t FROM Trip t
-        WHERE t.status = :status 
+        WHERE t.status = :status
           AND t.departureCity = :depCity
           AND t.arrivalCity = :arrCity
           AND t.departureDate >= :minDate
           AND t.remainingWeight >= :minWeight
+          AND t.basePricePerKg <= :maxPrice
         ORDER BY t.departureDate ASC
     """)
     List<Trip> findAvailableTrips(
@@ -25,7 +26,8 @@ public interface TripRepository extends JpaRepository<Trip, Long> {
             @Param("arrCity") String arrivalCity,
             @Param("minDate") LocalDate minimumDepartureDate,
             @Param("minWeight") double minimumWeight,
-            @Param("status") TripStatus status
+            @Param("status") TripStatus status,
+            @Param("maxPrice") Double maxPrice
     );
 
 }
