@@ -1,4 +1,4 @@
-package com.cabas.mapper;
+package com.cabas.mapper.trip;
 
 import com.cabas.dto.request.trip.TripRequest;
 import com.cabas.dto.request.trip.TripUpdateRequest;
@@ -8,10 +8,7 @@ import org.mapstruct.*;
 
 import java.util.List;
 
-@Mapper(
-        componentModel = MappingConstants.ComponentModel.SPRING,
-        unmappedTargetPolicy = ReportingPolicy.IGNORE
-)
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING, unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface TripMapper {
 
     @Mapping(target = "id", ignore = true)
@@ -31,5 +28,6 @@ public interface TripMapper {
     @Mapping(target = "remainingWeight", ignore = true)
     @Mapping(target = "departureCity", ignore = true)
     @Mapping(target = "arrivalCity", ignore = true)
+    @Mapping(target = "basePricePerKg", ignore = true)
     void updateTripFromDto(TripUpdateRequest request, @MappingTarget Trip trip);
 }

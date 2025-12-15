@@ -1,4 +1,4 @@
-package com.cabas.service;
+package com.cabas.service.trip;
 
 import com.cabas.dto.request.trip.TripRequest;
 import com.cabas.dto.request.trip.TripSearchCriteria;

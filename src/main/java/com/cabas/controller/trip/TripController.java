@@ -1,10 +1,10 @@
-package com.cabas.controller;
+package com.cabas.controller.trip;
 
 import com.cabas.dto.request.trip.TripRequest;
 import com.cabas.dto.request.trip.TripSearchCriteria;
 import com.cabas.dto.request.trip.TripUpdateRequest;
 import com.cabas.dto.response.trip.TripResponse;
-import com.cabas.service.TripService;
+import com.cabas.service.trip.TripService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -20,7 +20,7 @@ public class TripUpdateRequest {
     @Positive @NotNull
     private Double totalWeightCapacity;
 
-    @Positive @NotNull
+    @Positive
     private Double basePricePerKg;
 
     private String description;
