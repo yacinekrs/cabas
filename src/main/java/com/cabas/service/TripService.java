@@ -25,4 +25,5 @@ public interface TripService {
      */
     List<TripResponse> searchTrips(TripSearchCriteria criteria);
 
+    void deleteTrip(Long tripId);
 }

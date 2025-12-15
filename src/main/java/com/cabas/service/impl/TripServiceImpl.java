@@ -96,4 +96,20 @@ public class TripServiceImpl implements TripService {
       return tripMapper.toResponseList(availableTrips);
     }
 
+    @Override
+    @Transactional
+    public void deleteTrip(Long tripId) {
+        Trip existingTrip = tripRepository.findById(tripId)
+                .orElseThrow(() -> new RuntimeException("Trajet non trouvé avec l'ID: " + tripId));
+
+        // TODO: [À implémenter après Booking]
+        // AVANT la suppression, on doit VÉRIFIER
+        // s'il existe des réservations (Bookings) ACCEPTÉES pour ce trajet.
+        // Si oui, la suppression devrait être interdite, ou le statut du Trip
+        // devrait être passé à CANCELLED avec envoi de notifications aux expéditeurs,
+        // et application éventuelle de pénalités.
+
+        tripRepository.delete(existingTrip);
+    }
+
 }
