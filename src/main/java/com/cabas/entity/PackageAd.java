@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -19,10 +20,11 @@ public class PackageAd {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(length = 500)
     private String description;
 
     @Column(nullable = false)
-    private Double weight; // poids
+    private Double weight;
 
     @Column(nullable = false)
     private String departureCity;
@@ -30,18 +32,29 @@ public class PackageAd {
     @Column(nullable = false)
     private String arrivalCity;
 
+    @Column()
     private LocalDate departureDate;
+
+    @Column(nullable = false)
+    private Double offeredPrice;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private AdStatus status;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sender_id", nullable = false)
     private User sender;
 
-    // Relation : Une annonce (PackageAd) a au maximum une réservation (Booking) concrète.
     @OneToOne(mappedBy = "packageAd", cascade = CascadeType.ALL)
     private Booking booking;
+
+    @Column(nullable = false)
+    private LocalDateTime creationDate;
+
+    @PrePersist
+    protected void onCreate() {
+        this.creationDate = LocalDateTime.now();
+        this.status = AdStatus.OPEN;
+    }
 }

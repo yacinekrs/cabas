@@ -3,13 +3,13 @@ package com.cabas.service.trip.impl;
 import com.cabas.dto.request.trip.TripRequest;
 import com.cabas.dto.request.trip.TripSearchCriteria;
 import com.cabas.dto.request.trip.TripUpdateRequest;
-import com.cabas.dto.response.trip.TripResponse; // NOUVEAU
+import com.cabas.dto.response.trip.TripResponse;
 import com.cabas.entity.Trip;
-import com.cabas.entity.User; // Assurez-vous d'avoir l'Entité User
-import com.cabas.enums.TripStatus; // Assurez-vous d'avoir l'Enum TripStatus
-import com.cabas.mapper.trip.TripMapper; // NOUVEAU
+import com.cabas.entity.User;
+import com.cabas.enums.TripStatus;
+import com.cabas.mapper.trip.TripMapper;
 import com.cabas.repository.TripRepository;
-import com.cabas.repository.UserRepository; // Assurez-vous d'avoir le UserRepository
+import com.cabas.repository.UserRepository;
 import com.cabas.service.trip.TripService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
